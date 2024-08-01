@@ -2064,3 +2064,89 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija */
+  z-index: 1; /* En el frente */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  overflow: auto; /* Desplazamiento si es necesario */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Puede ajustar esto para cambiar el tamaño del modal */
+  max-width: 600px; /* Máximo ancho del modal */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+/* El botón de cerrar (x) */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+input {
+  padding: 8px;
+  margin-top: 1px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #16314e;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: rgb(33, 61, 136);
+}
