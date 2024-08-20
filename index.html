@@ -7,10 +7,10 @@
   <title>Dermapen Uruguay</title>
   <meta content="Dermapen Uruguay." name="description">
   <meta content="" name="keywords">
-  
+
   <!-- Favicons -->
-     <link href="assets/img/Logo_Dermapen_4.png" rel="icon"> 
-  <link href="assets/img/Logo_Dermapen_4.png" rel="apple-touch-icon"> 
+  <link href="assets/img/Logo_Dermapen_4.png" rel="icon">
+  <link href="assets/img/Logo_Dermapen_4.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,6 +36,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
 </head>
 
 <body class="index-page">
@@ -47,7 +48,7 @@
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">
-          <img src="/assets/img/Logo_Dermapen_4.png"/>
+          <img src="/assets/img/Logo_Dermapen_4.png" />
         </h1>
       </a>
 
@@ -355,7 +356,7 @@
             </ul> -->
           </div>
 
-       
+
 
         </div>
 
@@ -436,7 +437,7 @@
             </ul> -->
           </div>
 
-         
+
 
         </div>
 
@@ -598,7 +599,7 @@
             </ul> -->
           </div>
 
-          
+
 
         </div>
 
@@ -1439,6 +1440,35 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script type="text/javascript">
+    // Inicializar Supabase
+    const { createClient } = supabase
+    const supabaseUrl = 'https://ovpajfgagzvsgvzbbvkg.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im92cGFqZmdhZ3p2c2d2emJidmtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQxOTQ4MzQsImV4cCI6MjAzOTc3MDgzNH0.J_6Y11HgO-QItzH5Zzw3Ueqqec5gayWdAwbaIMxRfVw';
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+    // Manejar el envío del formulario
+    document.getElementById('infoForm').addEventListener('submit', async function fetchData (event) {
+      event.preventDefault(); // Prevenir el envío normal del formulario
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      // Insertar datos en la tabla "reg"
+      let { data, error } = await supabaseClient
+        .from('reg')
+        .insert([{ nombre: name, email: email, telefono: phone }]);
+
+      if (error) {
+        alert("Error, intenta otra vez.");
+        console.log(error);
+      } else {
+        alert("Los datos fueron enviados");
+        document.getElementById('infoForm').reset(); // Resetear el formulario al enviar los datos
+      }
+    });
+  </script>
 </body>
 
 </html>
