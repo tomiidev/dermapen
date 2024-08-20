@@ -1457,7 +1457,7 @@
 
       // Insertar datos en la tabla "reg"
       let { data, error } = await supabaseClient
-        .from('reg')
+        .from('db_users')
         .insert([{ nombre: name, email: email, telefono: phone }]);
 
       if (error) {
